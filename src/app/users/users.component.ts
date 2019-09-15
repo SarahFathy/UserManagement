@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './users.service';
+import { UsersService } from '../_services/users.service';
 import { debug } from 'util';
 import { User } from '../Modules/user-model';
 import { Router } from "@angular/router";
+import { AuthenticationService } from '../_services';
+import { Role } from '../_models';
 
 @Component({
   selector: 'app-users',
@@ -23,14 +25,16 @@ export class UsersComponent implements OnInit {
 
 
 
-  constructor(private service: UsersService, private router: Router) {
+  constructor(private service: UsersService, private router: Router, private authenticationService: AuthenticationService) {
   }
 
   onAdd($event) {
     localStorage.removeItem('editUserId');
     this.router.navigate(['add-user']);
   }
-
+  isAdmin() {
+    return this.authenticationService.currentUserValue.role === Role.Admin;
+  }
 
   editUser(id: number) {
     let user = this.service.getUserByID(id);

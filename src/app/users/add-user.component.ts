@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { UsersService } from './users.service';
+import { UsersService } from '../_services/users.service';
 import { Router } from "@angular/router";
 import { of } from 'rxjs';
 
@@ -21,12 +21,11 @@ export class AddUserComponent implements OnInit {
   addForm: FormGroup;
   btnvisibility: boolean = true;
   ngOnInit() {
-
     this.addForm = this.formBuilder.group({
       id: ['', Validators.required],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]],
-      phone: ['', [Validators.required, Validators.maxLength(11),Validators.minLength(11)]],
+      phone: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11)]],
       Status: ['', [Validators.required]]
 
     });
