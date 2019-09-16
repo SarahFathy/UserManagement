@@ -39,8 +39,8 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'email', 'phone', 'Status', 'Actions'];
 
   dataSource;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort,{static: true}) sort: MatSort;
+  @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
 
   // dataSource = new MatTableDataSource(this.users);
   //dataSource = this.service.getUsers();
