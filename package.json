@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:ar": "ng serve --aot --i18nFile=src/locale/messages.ar.xlf --i18nFormat=xlf --locale ar",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

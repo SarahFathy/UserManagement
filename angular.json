@@ -58,6 +58,13 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "ar": {
+              "aot": true,
+              "i18nFile": "src/locale/messages.ar.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ar",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -69,6 +76,9 @@
           "configurations": {
             "production": {
               "browserTarget": "UserManagement:build:production"
+            },
+            "ar": {
+              "browserTarget": "UserManagement:build:ar"
             }
           }
         },
