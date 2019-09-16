@@ -3,7 +3,7 @@
   <form [formGroup]="addForm" novalidate class="form">
     <div class="form-group">
       <label for="userId">User Id:</label>
-      <input type="number" formControlName="id" placeholder="Id" name="userId" class="form-control" id="userId">
+      <input type="number" disabled = "true" formControlName="id" placeholder="Id" name="userId" class="form-control" id="userId">
     </div>
 
     <div class="form-group">
@@ -33,12 +33,18 @@
     </div>
     <div class="form-group">
       <label for="Status">status</label>
-      <select formControlName="Status" id="Status">
-        <option *ngFor="let sta of Status; let i = index" [value]="Status[i].name">
-          {{Status[i].name}}
+      <select formControlName="Status" id="Status" disabled = "true">
+        <option [selected]='true' [value]="Status[0].name">
+          {{Status[0].name}}
+        </option>
+        <option [value]="Status[1].name">
+          {{Status[1].name}}
         </option>
       </select>
     </div>
-    <button class="btn btn-success" [disabled]='false' *ngIf="btnvisibility" (click)="onSubmit()">Save</button>
+    <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="btnvisibility"
+      (click)="onSubmit()">Save</button>
+    <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="!btnvisibility"
+      (click)="onUpdate()">Update</button>
   </form>
 </div>

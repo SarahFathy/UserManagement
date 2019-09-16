@@ -22,11 +22,11 @@ export class AddUserComponent implements OnInit {
   btnvisibility: boolean = true;
   ngOnInit() {
     this.addForm = this.formBuilder.group({
-      id: ['', Validators.required],
+      id: ['', Validators.nullValidator],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]],
-      phone: ['', [Validators.required,  Validators.pattern(/^\d{11}$/)]],
-      Status: ['', [Validators.required]]
+      phone: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
+      Status: ['', [Validators.nullValidator]]
 
     });
 
@@ -43,11 +43,21 @@ export class AddUserComponent implements OnInit {
       this.userformlabel = 'Edit User';
       this.userformbtn = 'Update';
     }
+    else {
+      let maxId = this.userService.getMaxId();
+      this.addForm.patchValue({
+        "name": "",
+        "id": ++maxId,
+        "email": "",
+        "phone": "",
+        "Status": ""
+      });
+    }
   }
   getStatus() {
     return [
-      { id: 'active', name: 'active' },
-      { id: 'soft_delete  ', name: 'soft_delete' },
+      { id: 1, name: 'active' },
+      { id: 2, name: 'soft_delete' },
     ];
   }
   onSubmit() {

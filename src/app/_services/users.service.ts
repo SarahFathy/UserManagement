@@ -29,7 +29,49 @@ export class UsersService {
             "email": "c@test.com",
             "phone": 82736,
             "Status": "soft_deleted"
-        },];
+        },
+        {
+            "name": "Ibrahim",
+            "id": 4,
+            "email": "d@test.com",
+            "phone": 823736,
+            "Status": "soft_deleted"
+        },
+        {
+            "name": "mohsen",
+            "id": 5,
+            "email": "e@test.com",
+            "phone": 156516,
+            "Status": "active"
+        },
+        {
+            "name": "ali",
+            "id": 6,
+            "email": "c@test.com",
+            "phone": 82736,
+            "Status": "soft_deleted"
+        },
+        {
+            "name": "ali",
+            "id": 7,
+            "email": "c@test.com",
+            "phone": 82736,
+            "Status": "soft_deleted"
+        },
+        {
+            "name": "Omar",
+            "id": 8,
+            "email": "q1@test.com",
+            "phone": 82736,
+            "Status": "active"
+        },
+        {
+            "name": "Mohamed",
+            "id": 9,
+            "email": "z@test.com",
+            "phone": 213,
+            "Status": "soft_deleted"
+        }];
 
     getUsers() {
         return this.UserList;
@@ -51,6 +93,9 @@ export class UsersService {
 
     createUser(user: User) {
         this.UserList.push(user);
+    }
+    getMaxId() {
+        return Math.max.apply(Math, this.UserList.map(function(o) { return o.id; }));
     }
 
     updateUser(user: User) {
