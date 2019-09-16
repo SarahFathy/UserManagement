@@ -31,3 +31,14 @@ li:hover {
   background: #eee;
   cursor: pointer;
 }
+
+button {
+  font-size : 18px;
+  padding: 6px;
+  
+    }
+
+    ng-container
+    {
+      align-content: center;
+    }

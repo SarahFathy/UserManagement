@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core'
 import { User } from '../Modules/user-model';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
+
+@Injectable()
 export class UsersService {
+
+    constructor() { }
+
     UserList = [
         {
             "name": "ahmed",
